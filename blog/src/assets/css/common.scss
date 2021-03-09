@@ -1,0 +1,128 @@
+
+// 页面使用的红色
+$red-color: #ed1c24;
+
+
+
+
+// rest
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    &::selection {
+        background-color: $red-color;
+        color: white;
+    }
+}
+li {
+    list-style: none;
+}
+
+html,
+body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+        'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+// 滚动条宽度5px
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: black;
+}
+// 禁止横向滚动条
+body {
+    overflow-x: hidden;
+}
+
+
+
+
+
+// 夜间模式的主要样式
+%night {
+    background: rgba(0, 0, 0, 0.863) !important;
+    box-shadow: none !important;
+    color: rgba(194, 190, 190, 0.979) !important;
+
+    address {
+        color: rgba(194, 190, 190, 0.979) !important;
+        &:hover {
+            color: $red-color !important;
+        }
+    }
+    time, button, h2 {
+        color: rgba(194, 190, 190, 0.979) !important;
+    }
+
+    p span{
+        color: rgba(194, 190, 190, 0.979) !important;
+    }
+
+    input {
+        background: rgba(22, 22, 22, 0.171);
+    }
+    button {
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.26);
+        }
+    }
+}
+
+
+
+// 夜间模式的荧光渐变
+%article-linear {
+    position: relative;
+    background: rgb(0, 0, 0) !important;
+
+    * {
+        position: relative !important;
+    }
+
+
+    &::before {
+        content: '';
+        display: inherit;
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        background: white !important;
+        z-index: -1;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        display: inherit;
+        top: -2px;
+        right: -2px;
+        bottom: -2px;
+        left: -2px;
+        background: white !important;
+        z-index: -2;
+        filter: blur(60px) !important;
+    }
+    &::before,&::after {
+        transition: all 700ms;
+        background: linear-gradient(235deg, black, #0c0f1a, rgb(179, 166, 179)) !important;
+    }
+    &:hover::before, &:hover::after {
+        filter: blur(100px) !important;
+    }
+}
+
+
+
