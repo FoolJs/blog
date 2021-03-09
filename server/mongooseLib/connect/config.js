@@ -1,7 +1,7 @@
 module.exports = {
-    db: 'blog_x',
-    user: 'db-owner-user',
-    pass: 'foolmangogogo',
+    db: '',
+    user: '',
+    pass: '',
     host: 'localhost',
     port: '27017',
 };
